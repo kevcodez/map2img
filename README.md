@@ -1,20 +1,3 @@
 # map2img
 
-## Build Setup
-
-```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8d52c7ee-39df-4771-8a56-47908853b2e7/deploy-status)](https://app.netlify.com/sites/map2img/deploys)
