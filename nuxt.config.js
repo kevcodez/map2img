@@ -1,8 +1,8 @@
 export default {
-  // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
+  ssr: false,
+  modern: process.env.NODE_ENV === 'development' ? false : 'client',
 
-  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'map2img',
     meta: [
@@ -13,16 +13,12 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: ['~assets/css/main'],
 
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
 
-  // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/eslint-module',
@@ -30,13 +26,20 @@ export default {
     '@nuxtjs/fontawesome',
   ],
 
-  // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: ['@nuxt/http'],
 
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 
   fontawesome: {
-    icons: [],
+    icons: {
+      solid: ['faMapSigns', 'faMugHot', 'faHeart', 'faImage'],
+      brands: ['faTwitter', 'faGithub'],
+    },
+  },
+
+  publicRuntimeConfig: {
+    mapboxKey:
+      'pk.eyJ1Ijoia2dydWVuZWJlcmciLCJhIjoiY2tqdWQwenZwMWdhMTJ4cWhlZzBqZzVrOCJ9.8aZzSTtGtqbbCxvVvLyH7w',
+    googleMapsKey: 'AIzaSyBU8Gj5d33sLR4rHwV6FQBqijrbpVsEhBo',
   },
 }

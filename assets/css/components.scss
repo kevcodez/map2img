@@ -1,0 +1,28 @@
+@layer components {
+  .button {
+    @apply text-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white;
+    @apply focus:outline-none;
+    @apply transition duration-150 ease-in-out;
+
+    &.primary {
+      @apply bg-indigo-600;
+      @apply hover:bg-indigo-500;
+      @apply focus:border-indigo-700;
+    }
+
+    &:disabled {
+      @apply cursor-not-allowed bg-indigo-400 hover:bg-indigo-400;
+    }
+  }
+
+  .input {
+    @apply appearance-none px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400;
+    @apply transition duration-150 ease-in-out;
+    @apply sm:text-sm sm:leading-5;
+    @apply focus:outline-none focus:border-blue-300;
+  }
+
+  .form-label {
+    @apply block text-gray-700 font-medium;
+  }
+}
