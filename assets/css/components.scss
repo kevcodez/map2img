@@ -26,6 +26,10 @@
     @apply block text-gray-700 font-medium;
   }
 
+  .form-error {
+    @apply text-red-500 text-sm mt-1;
+  }
+
   .dropdown {
     @apply block w-full border-gray-300 text-base rounded-md shadow-sm px-3 py-2 border;
   }

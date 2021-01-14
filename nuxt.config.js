@@ -15,7 +15,7 @@ export default {
 
   css: ['~assets/css/main'],
 
-  plugins: [],
+  plugins: ['~plugins/validate'],
 
   components: true,
 
@@ -32,7 +32,7 @@ export default {
 
   fontawesome: {
     icons: {
-      solid: ['faMapSigns', 'faMugHot', 'faHeart', 'faImage'],
+      solid: ['faMapSigns', 'faImage', 'faRocket', 'faCreditCard', 'faBirthdayCake'],
       brands: ['faTwitter', 'faGithub'],
     },
   },

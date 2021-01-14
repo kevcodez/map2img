@@ -17,6 +17,7 @@
     "lodash.debounce": "^4.0.8",
     "nuxt": "^2.14.6",
     "v-click-outside": "^3.1.2",
+    "vee-validate": "^3.4.5",
     "vue-slider-component": "^3.2.11"
   },
   "devDependencies": {
