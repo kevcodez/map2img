@@ -3,7 +3,7 @@
     <font-awesome-icon :icon="icon" class="mr-2" />
     <span class="mb-2 text-xl font-semibold">{{ title }}</span>
 
-    <p class="text-lg text-gray-800"><slot /></p>
+    <p class="text-lg text-gray-800 pt-2"><slot /></p>
   </div>
 </template>
 

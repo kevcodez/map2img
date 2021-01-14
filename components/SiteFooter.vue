@@ -3,8 +3,10 @@
   <footer class="mt-8 bg-gray-800">
     <div class="px-4 py-6 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
       <nav aria-label="Footer">
-        <div class="grid space-y-5 md:space-y-0 md:grid-cols-2">
-          <div class="flex flex-wrap">
+        <div
+          class="flex justify-between flex-col md:flex-row space-y-4 md:space-y-0"
+        >
+          <div class="flex flex-wrap justify-center md:justify-start">
             <div class="px-5">
               <a href="#nav" class="text-base text-gray-300 hover:text-white">
                 Back to Top
@@ -31,7 +33,7 @@
               </a>
             </div>
           </div>
-          <div class="flex flex-wrap justify-end">
+          <div class="flex flex-wrap justify-center md:justify-end">
             <div class="px-5">
               <a
                 href="https://twitter.com/kevcodez"
