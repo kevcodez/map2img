@@ -16,13 +16,6 @@
             >
           </div> -->
         </div>
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <a href="#create" type="button" class="button primary">
-              <span>Create image</span>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
 

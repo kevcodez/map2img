@@ -1,17 +1,19 @@
 <template>
-  <div class="bg-gray-100">
+  <div class="bg-white">
     <site-navbar />
 
-    <div
-      class="px-4 pt-4 mx-auto space-y-10 md:space-y-16 max-w-7xl sm:px-6 lg:px-8"
-    >
-      <cta-section id="cta" />
+    <div>
+      <div>
+        <cta-section id="cta" />
+      </div>
 
-      <advantage-list id="advantages" />
+      <div class="section bg-gray-50">
+        <advantage-list id="advantages" class="" />
+      </div>
 
-      <hr />
-
-      <builder id="create" />
+      <div class="section">
+        <builder id="create" class="" />
+      </div>
     </div>
 
     <site-footer />
@@ -21,3 +23,11 @@
 <script>
 export default {}
 </script>
+
+<style lang="scss">
+.section {
+  > div {
+    @apply max-w-7xl sm:px-6 lg:px-8 mx-auto px-4 py-4 sm:py-4 md:py-8;
+  }
+}
+</style>

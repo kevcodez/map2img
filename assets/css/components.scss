@@ -25,4 +25,8 @@
   .form-label {
     @apply block text-gray-700 font-medium;
   }
+
+  .dropdown {
+    @apply block w-full border-gray-300 text-base rounded-md shadow-sm px-3 py-2 border;
+  }
 }

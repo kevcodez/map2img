@@ -11,7 +11,7 @@ export class StaticImageUrlGeneratorMapbox implements StaticImageUrlGenerator {
     const lat = address.coordinates.latitude
     const lng = address.coordinates.longitude
 
-    const url = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-l+000(${lat},${lng})/${lat},${lng},${config.zoom},${config.rotation},${config.tilt}/1000x600@2x?access_token=${mapboxKey}`
+    const url = `https://api.mapbox.com/styles/v1/mapbox/${config.style}/static/pin-l+000(${lat},${lng})/${lat},${lng},${config.zoom},${config.rotation},${config.tilt}/1000x600@2x?access_token=${mapboxKey}`
 
     return url
   }

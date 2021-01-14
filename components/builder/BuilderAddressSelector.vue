@@ -16,7 +16,7 @@
       </span>
       <span
         v-if="searchTerm"
-        class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+        class="absolute inset-y-0 right-0 flex items-center pr-3 text-lg cursor-pointer"
         @click.prevent="reset()"
       >
         x

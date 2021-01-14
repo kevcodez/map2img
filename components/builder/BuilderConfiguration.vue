@@ -9,7 +9,7 @@
             v-model="provider"
             name="provider"
             autocomplete="provider"
-            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            class="dropdown"
           >
             <option
               v-for="providerOption in availableProviders"
@@ -30,7 +30,7 @@
             v-model="style"
             name="style"
             autocomplete="style"
-            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            class="dropdown"
           >
             <option
               v-for="styleOption in availableStyles"
@@ -78,7 +78,7 @@
 
     <div>
       <label for="tilt" class="form-label">Tilt</label>
-      <vue-slider id="tilt" v-model="tilt" :min="0" />
+      <vue-slider id="tilt" v-model="tilt" :min="0" :max="60" />
     </div>
 
     <div>
@@ -116,7 +116,7 @@ export default {
   data() {
     return {
       provider: 'Mapbox',
-      style: 'Default',
+      style: 'streets-v11',
       zoom: 18,
       tilt: 0,
       rotation: 0,
@@ -128,7 +128,16 @@ export default {
   computed: {
     availableStyles() {
       const map = new Map([
-        ['Mapbox', ['Default']],
+        [
+          'Mapbox',
+          [
+            'streets-v11',
+            'light-v10',
+            'dark-v10',
+            'outdoors-v11',
+            'satellite-v9',
+          ],
+        ],
         ['Google Maps', ['Default']],
       ])
       return map.get(this.provider)

@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h3 class="mb-4 text-2xl font-bold text-center">Create image</h3>
+    <h3
+      class="mb-4 text-2xl font-bold text-center tracking-wide text-gray-600 uppercase"
+    >
+      Create your image
+    </h3>
     <builder-address-selector @address-changed="addressChanged" />
 
     <div class="grid gap-12 mt-2 md:grid-cols-2">
@@ -36,8 +40,8 @@ export default {
       dirty: true,
       mapConfig: {
         provider: 'Mapbox',
-        style: 'Default',
-        zoom: 12,
+        style: 'streets-v11',
+        zoom: 18,
         tilt: 0,
         rotation: 0,
         height: 500,
