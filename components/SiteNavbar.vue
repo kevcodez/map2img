@@ -1,9 +1,9 @@
 <template>
-  <nav id="nav" class="bg-gray-800">
+  <nav id="nav" class="bg-white shadow">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex">
-          <div class="flex items-center flex-shrink-0 text-xl text-white">
+          <div class="flex items-center flex-shrink-0 text-xl text-gray-900">
             <font-awesome-icon :icon="['fas', 'map-signs']" class="mr-2" />
             map2img
           </div>

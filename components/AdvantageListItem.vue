@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <font-awesome-icon :icon="icon" class="mr-2" />
-    <span class="mb-2 text-xl font-semibold">{{ title }}</span>
+  <div class="text-gray-300">
+    <font-awesome-icon :icon="icon" class="mr-2 text-2xl" />
+    <span class="text-2xl font-semibold tracking-wide md:text-3xl">{{
+      title
+    }}</span>
 
-    <p class="text-lg text-gray-800 pt-2"><slot /></p>
+    <p class="pt-3 text-xl text-gray-200"><slot /></p>
   </div>
 </template>
 

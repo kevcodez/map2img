@@ -7,12 +7,12 @@
         <cta-section id="cta" />
       </div>
 
-      <div class="section bg-gray-50">
-        <advantage-list id="advantages" class="" />
+      <div class="bg-gray-800 section">
+        <advantage-list id="advantages" />
       </div>
 
       <div class="section">
-        <builder id="create" class="" />
+        <builder id="create" />
       </div>
     </div>
 
@@ -27,7 +27,7 @@ export default {}
 <style lang="scss">
 .section {
   > div {
-    @apply max-w-7xl sm:px-6 lg:px-8 mx-auto px-4 py-4 sm:py-4 md:py-8;
+    @apply max-w-7xl lg:px-8 mx-auto px-6 py-16;
   }
 }
 </style>

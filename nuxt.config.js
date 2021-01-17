@@ -32,14 +32,20 @@ export default {
 
   fontawesome: {
     icons: {
-      solid: ['faMapSigns', 'faImage', 'faRocket', 'faCreditCard', 'faBirthdayCake'],
+      solid: [
+        'faMapSigns',
+        'faImage',
+        'faRocket',
+        'faCreditCard',
+        'faBirthdayCake',
+        'faPalette',
+      ],
       brands: ['faTwitter', 'faGithub'],
     },
   },
 
   publicRuntimeConfig: {
-    mapboxKey:
-      'pk.eyJ1Ijoia2dydWVuZWJlcmciLCJhIjoiY2tqdWQwenZwMWdhMTJ4cWhlZzBqZzVrOCJ9.8aZzSTtGtqbbCxvVvLyH7w',
-    googleMapsKey: 'AIzaSyBU8Gj5d33sLR4rHwV6FQBqijrbpVsEhBo',
+    mapboxKey: process.env.mapboxKey,
+    googleMapsKey: process.env.googleMapsKey,
   },
 }
