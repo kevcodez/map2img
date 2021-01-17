@@ -8,14 +8,18 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Quickly turn an address, place or location into a static image. No coding required, free of charge.',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   css: ['~assets/css/main'],
 
-  plugins: ['~plugins/validate'],
+  plugins: ['~plugins/validate', '~plugins/tooltip'],
 
   components: true,
 
@@ -29,6 +33,7 @@ export default {
     icons: {
       solid: ['faMapSigns', 'faImage', 'faRocket', 'faCreditCard', 'faBirthdayCake', 'faPalette'],
       brands: ['faTwitter', 'faGithub'],
+      regular: ['faQuestionCircle'],
     },
   },
 

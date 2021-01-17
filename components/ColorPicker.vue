@@ -2,7 +2,7 @@
   <div class="relative flex" ref="colorpicker">
     <div class="flex items-center" @click="togglePicker()">
       <div class="rounded-full w-7 h-7" :style="'background-color: ' + colorValue"></div>
-      <span class="ml-2">{{ colorValue }}</span>
+      <span class="ml-2 cursor-pointer hover:text-blue-600">{{ colorValue }}</span>
     </div>
     <chrome-picker
       v-if="displayPicker"
