@@ -25,6 +25,9 @@ export class StaticImageUrlGeneratorGoogleMaps implements StaticImageUrlGenerato
       zoom: config.zoom,
       size: `${config.width}x${config.height}`,
       map_id: mapId,
+      markers: config.markerEnabled
+        ? `color:0x${config.markerColor.replace('#', '')}|${cooordinates.longitude}, ${address.coordinates.latitude}`
+        : '',
     }
 
     const baseUrl = 'https://maps.googleapis.com/maps/api/staticmap'
