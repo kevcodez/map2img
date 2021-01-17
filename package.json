@@ -18,6 +18,7 @@
     "nuxt": "^2.14.6",
     "v-click-outside": "^3.1.2",
     "vee-validate": "^3.4.5",
+    "vue-color": "^2.8.1",
     "vue-slider-component": "^3.2.11"
   },
   "devDependencies": {

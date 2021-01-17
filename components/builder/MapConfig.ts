@@ -9,4 +9,5 @@ export type MapConfig = {
   height: number
   width: number
   markerEnabled: boolean
+  markerColor: string
 }

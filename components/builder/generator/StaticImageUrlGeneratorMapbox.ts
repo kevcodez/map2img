@@ -21,7 +21,11 @@ export class StaticImageUrlGeneratorMapbox implements StaticImageUrlGenerator {
 
     const style = mapStyle[config.style] || 'streets-v11'
 
-    const url = `https://api.mapbox.com/styles/v1/mapbox/${style}/static/pin-l+000(${lat},${lng})/${lat},${lng},${config.zoom},${config.rotation},${config.tilt}/1000x600@2x?access_token=${mapboxKey}`
+    const markerColor = config.markerColor.replace('#', '')
+
+    const markerPath = config.markerEnabled ? `pin-l+${markerColor}(${lat},${lng})/` : ''
+
+    const url = `https://api.mapbox.com/styles/v1/mapbox/${style}/static/${markerPath}${lat},${lng},${config.zoom},${config.rotation},${config.tilt}/${config.width}x${config.height}@2x?access_token=${mapboxKey}`
 
     return url
   }

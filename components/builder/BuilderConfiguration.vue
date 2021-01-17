@@ -1,6 +1,6 @@
 <template>
   <ValidationObserver>
-    <div class="space-y-2">
+    <div class="space-y-4">
       <div class="grid grid-cols-2 gap-6">
         <div>
           <label for="provider" class="form-label">Provider</label>
@@ -58,24 +58,30 @@
         <vue-slider id="tilt" v-model="tilt" :min="0" :max="60" />
       </div>
 
-      <div>
-        <label class="form-label">Marker</label>
-        <div class="mt-1">
-          <button
-            type="button"
-            aria-pressed="false"
-            aria-labelledby="toggleLabel"
-            class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            :class="markerEnabled ? ' bg-blue-600' : ' bg-gray-200'"
-            @click="markerEnabled = !markerEnabled"
-          >
-            <span class="sr-only">Use setting</span>
-            <span
-              aria-hidden="true"
-              class="inline-block w-5 h-5 transition duration-200 ease-in-out transform bg-white rounded-full shadow ring-0"
-              :class="markerEnabled ? 'translate-x-5' : 'translate-x-0'"
-            ></span>
-          </button>
+      <div class="grid grid-cols-2">
+        <div>
+          <label class="form-label">Marker</label>
+          <div class="mt-1">
+            <button
+              type="button"
+              aria-pressed="false"
+              aria-labelledby="toggleLabel"
+              class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              :class="markerEnabled ? ' bg-blue-600' : ' bg-gray-200'"
+              @click="markerEnabled = !markerEnabled"
+            >
+              <span class="sr-only">Use setting</span>
+              <span
+                aria-hidden="true"
+                class="inline-block w-5 h-5 transition duration-200 ease-in-out transform bg-white rounded-full shadow ring-0"
+                :class="markerEnabled ? 'translate-x-5' : 'translate-x-0'"
+              ></span>
+            </button>
+          </div>
+        </div>
+        <div v-if="markerEnabled">
+          <label class="form-label">Color</label>
+          <color-picker class="mt-1" v-model="markerColor" />
         </div>
       </div>
     </div>
@@ -101,6 +107,7 @@ export default {
       height: 500,
       width: 500,
       markerEnabled: true,
+      markerColor: '#000000',
     }
   },
   computed: {
@@ -143,6 +150,12 @@ export default {
     width() {
       this.notifyChange()
     },
+    markerColor() {
+      this.notifyChange()
+    },
+    markerEnabled() {
+      this.notifyChange()
+    },
   },
   methods: {
     notifyChange() {
@@ -154,6 +167,8 @@ export default {
         zoom: this.zoom,
         height: this.height,
         width: this.width,
+        markerEnabled: this.markerEnabled,
+        markerColor: this.markerColor,
       })
     },
   },

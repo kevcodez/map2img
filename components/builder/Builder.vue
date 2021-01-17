@@ -3,7 +3,7 @@
     <h3 class="mb-4 text-2xl font-bold tracking-wide text-center text-gray-600 uppercase">Create your image</h3>
     <builder-address-selector @address-changed="addressChanged" />
 
-    <div class="grid gap-12 mt-2 md:grid-cols-2">
+    <div class="grid gap-12 mt-4 md:grid-cols-2">
       <div>
         <builder-configuration @config-changed="mapConfigChanged" />
       </div>
@@ -38,6 +38,7 @@ export default {
         height: 500,
         width: 500,
         markerEnabled: true,
+        markerColor: '#000000',
       },
       image: null,
     }
