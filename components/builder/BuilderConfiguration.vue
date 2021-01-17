@@ -60,7 +60,7 @@
         <vue-slider id="zoom" v-model="zoom" :min="0" :max="22" />
       </div>
 
-      <div>
+      <div v-if="provider === 'Mapbox'">
         <label for="rotation" class="form-label">Rotation</label>
         <vue-slider id="rotation" v-model="rotation" :min="0" />
       </div>
@@ -76,8 +76,6 @@
           <div class="mt-1">
             <button
               type="button"
-              aria-pressed="false"
-              aria-labelledby="toggleLabel"
               class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               :class="markerEnabled ? ' bg-blue-600' : ' bg-gray-200'"
               @click="markerEnabled = !markerEnabled"
@@ -189,7 +187,7 @@ export default {
 
 <style lang="scss">
 .vue-slider-dot-handle {
-  @apply bg-blue-500;
+  @apply bg-blue-500 p-2;
 
   &::after {
     @apply bg-blue-300;

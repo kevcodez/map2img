@@ -1,9 +1,10 @@
 <template>
   <div>
-    <label class="form-label">Address</label>
+    <label for="address" class="form-label">Address</label>
     <div v-click-outside="clickedOutside" class="relative mt-1">
       <input
         v-if="!chosenOption"
+        id="address"
         ref="input"
         v-model="searchTerm"
         placeholder="Start by entering an address"
@@ -37,9 +38,7 @@
           >
             {{ item.name }}
           </li>
-          <li v-if="!options.length" class="px-3 py-2 text-center">
-            No Matching Results
-          </li>
+          <li v-if="!options.length" class="px-3 py-2 text-center">No Matching Results</li>
         </ul>
       </div>
     </div>

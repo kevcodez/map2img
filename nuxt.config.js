@@ -4,6 +4,9 @@ export default {
   modern: process.env.NODE_ENV === 'development' ? false : 'client',
 
   head: {
+    htmlAttrs: {
+      lang: 'en',
+    },
     title: 'map2img',
     meta: [
       { charset: 'utf-8' },
@@ -25,7 +28,7 @@ export default {
 
   buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss', '@nuxtjs/fontawesome'],
 
-  modules: ['@nuxt/http'],
+  modules: ['@nuxt/http', 'nuxt-lazy-load'],
 
   build: {},
 
