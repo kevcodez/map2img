@@ -1,11 +1,5 @@
 import Vue from 'vue'
-import {
-  ValidationProvider,
-  ValidationObserver,
-  extend,
-  setInteractionMode,
-} from 'vee-validate'
-// eslint-disable-next-line
+import { ValidationProvider, ValidationObserver, extend, setInteractionMode } from 'vee-validate'
 import { required, max, min, numeric, min_value, max_value } from 'vee-validate/dist/rules'
 
 Vue.component('ValidationProvider', ValidationProvider)

@@ -5,18 +5,8 @@
         <div>
           <label for="provider" class="form-label">Provider</label>
           <div class="mt-1 sm:mt-0">
-            <select
-              id="provider"
-              v-model="provider"
-              name="provider"
-              autocomplete="provider"
-              class="dropdown"
-            >
-              <option
-                v-for="providerOption in availableProviders"
-                :key="providerOption"
-                :value="providerOption"
-              >
+            <select id="provider" v-model="provider" name="provider" autocomplete="provider" class="dropdown">
+              <option v-for="providerOption in availableProviders" :key="providerOption" :value="providerOption">
                 {{ providerOption }}
               </option>
             </select>
@@ -26,18 +16,8 @@
         <div>
           <label for="style" class="form-label">Style</label>
           <div class="mt-1 sm:mt-0">
-            <select
-              id="style"
-              v-model="style"
-              name="style"
-              autocomplete="style"
-              class="dropdown"
-            >
-              <option
-                v-for="styleOption in availableStyles"
-                :key="styleOption"
-                :value="styleOption"
-              >
+            <select id="style" v-model="style" name="style" autocomplete="style" class="dropdown">
+              <option v-for="styleOption in availableStyles" :key="styleOption" :value="styleOption">
                 {{ styleOption }}
               </option>
             </select>
@@ -48,32 +28,16 @@
       <div class="grid grid-cols-2 gap-6">
         <div>
           <label for="width" class="form-label">Width</label>
-          <ValidationProvider
-            v-slot="{ errors }"
-            rules="required|numeric|min_value:1|max_value:1280"
-          >
-            <input
-              id="width"
-              v-model="width"
-              name="Width"
-              class="w-full mt-1 input"
-            />
+          <ValidationProvider v-slot="{ errors }" rules="required|numeric|min_value:1|max_value:1280">
+            <input id="width" v-model="width" name="Width" class="w-full mt-1 input" />
             <span class="form-error">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
 
         <div>
           <label for="height" class="form-label">Height</label>
-          <ValidationProvider
-            v-slot="{ errors }"
-            rules="required|numeric|min_value:1|max_value:1280"
-          >
-            <input
-              id="height"
-              v-model="height"
-              name="Height"
-              class="w-full mt-1 input"
-            />
+          <ValidationProvider v-slot="{ errors }" rules="required|numeric|min_value:1|max_value:1280">
+            <input id="height" v-model="height" name="Height" class="w-full mt-1 input" />
             <span class="form-error">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
@@ -89,7 +53,7 @@
         <vue-slider id="rotation" v-model="rotation" :min="0" />
       </div>
 
-      <div>
+      <div v-if="provider === 'Mapbox'">
         <label for="tilt" class="form-label">Tilt</label>
         <vue-slider id="tilt" v-model="tilt" :min="0" :max="60" />
       </div>
@@ -101,8 +65,8 @@
             type="button"
             aria-pressed="false"
             aria-labelledby="toggleLabel"
-            class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            :class="markerEnabled ? ' bg-indigo-600' : ' bg-gray-200'"
+            class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            :class="markerEnabled ? ' bg-blue-600' : ' bg-gray-200'"
             @click="markerEnabled = !markerEnabled"
           >
             <span class="sr-only">Use setting</span>
@@ -126,12 +90,12 @@ export default {
   components: {
     VueSlider,
   },
-  props: { location: { type: Object, required: true } },
+  props: { location: { type: Object, required: false, default: null } },
   data() {
     return {
       provider: 'Mapbox',
-      style: 'streets-v11',
-      zoom: 18,
+      style: 'Streets',
+      zoom: 17,
       tilt: 0,
       rotation: 0,
       height: 500,
@@ -142,26 +106,23 @@ export default {
   computed: {
     availableStyles() {
       const map = new Map([
-        [
-          'Mapbox',
-          [
-            'streets-v11',
-            'light-v10',
-            'dark-v10',
-            'outdoors-v11',
-            'satellite-v9',
-          ],
-        ],
-        ['Google Maps', ['Default']],
+        ['Mapbox', ['Streets', 'Light', 'Dark', 'Outdoors', 'Satellite']],
+        ['Google Maps', ['Classic', 'Light', 'Atlas', 'Grey', 'Night', 'Real Estate', 'Travel']],
       ])
       return map.get(this.provider)
     },
     availableProviders() {
-      return ['Mapbox']
+      return ['Mapbox', 'Google Maps']
     },
   },
   watch: {
-    provider() {
+    provider(newVal) {
+      if (newVal === 'Mapbox') {
+        this.style = 'Streets'
+      } else if (newVal === 'Google Maps') {
+        this.style = 'Classic'
+      }
+
       this.notifyChange()
     },
     style() {
@@ -201,22 +162,22 @@ export default {
 
 <style lang="scss">
 .vue-slider-dot-handle {
-  @apply bg-indigo-500;
+  @apply bg-blue-500;
 
   &::after {
-    @apply bg-indigo-300;
+    @apply bg-blue-300;
   }
 }
 
 .vue-slider-rail {
-  @apply bg-indigo-300;
+  @apply bg-blue-300;
 }
 
 .vue-slider-process {
-  @apply bg-indigo-500;
+  @apply bg-blue-500;
 }
 
 .vue-slider-dot-tooltip-inner {
-  @apply bg-indigo-500;
+  @apply bg-blue-500;
 }
 </style>

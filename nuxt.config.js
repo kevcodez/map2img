@@ -19,12 +19,7 @@ export default {
 
   components: true,
 
-  buildModules: [
-    '@nuxt/typescript-build',
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/fontawesome',
-  ],
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss', '@nuxtjs/fontawesome'],
 
   modules: ['@nuxt/http'],
 
@@ -32,14 +27,7 @@ export default {
 
   fontawesome: {
     icons: {
-      solid: [
-        'faMapSigns',
-        'faImage',
-        'faRocket',
-        'faCreditCard',
-        'faBirthdayCake',
-        'faPalette',
-      ],
+      solid: ['faMapSigns', 'faImage', 'faRocket', 'faCreditCard', 'faBirthdayCake', 'faPalette'],
       brands: ['faTwitter', 'faGithub'],
     },
   },

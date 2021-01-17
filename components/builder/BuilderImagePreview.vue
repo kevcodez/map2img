@@ -1,11 +1,7 @@
 <template>
   <div>
     <img v-if="image" :src="image" />
-    <font-awesome-icon
-      v-else
-      class="text-gray-700 text-9xl"
-      :icon="['fas', 'image']"
-    />
+    <font-awesome-icon v-else class="text-gray-700 text-9xl" :icon="['fas', 'image']" />
   </div>
 </template>
 
@@ -13,8 +9,9 @@
 export default {
   props: {
     image: {
-      type: Object,
-      required: true,
+      type: String,
+      required: false,
+      default: null,
     },
   },
 }

@@ -1,10 +1,6 @@
 <template>
   <div>
-    <h3
-      class="mb-4 text-2xl font-bold text-center tracking-wide text-gray-600 uppercase"
-    >
-      Create your image
-    </h3>
+    <h3 class="mb-4 text-2xl font-bold tracking-wide text-center text-gray-600 uppercase">Create your image</h3>
     <builder-address-selector @address-changed="addressChanged" />
 
     <div class="grid gap-12 mt-2 md:grid-cols-2">
@@ -17,12 +13,7 @@
     </div>
 
     <div class="flex justify-center mt-5">
-      <button
-        v-if="dirty"
-        class="button primary"
-        :disabled="!address || !mapConfig"
-        @click="generateImageUrl"
-      >
+      <button v-if="dirty" class="button primary" :disabled="!address || !mapConfig" @click="generateImageUrl">
         Generate new image
       </button>
       <builder-image-export v-if="image && !dirty" :image="image" />
@@ -41,7 +32,7 @@ export default {
       mapConfig: {
         provider: 'Mapbox',
         style: 'streets-v11',
-        zoom: 18,
+        zoom: 17,
         tilt: 0,
         rotation: 0,
         height: 500,
@@ -62,11 +53,7 @@ export default {
     },
     generateImageUrl() {
       if (this.address && this.mapConfig) {
-        this.image = generateProviderImageUrl(
-          this.address,
-          this.mapConfig,
-          this.$config
-        )
+        this.image = generateProviderImageUrl(this.address, this.mapConfig, this.$config)
       } else {
         this.image = null
       }
